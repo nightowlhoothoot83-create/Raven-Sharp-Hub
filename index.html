@@ -12,53 +12,79 @@
   :root {
     --bg: #050510; --surface: #0e0e1f; --surface-hover: #171732;
     --border: #23234d; --text: #f4f4ff; --muted: #9ba3d9; --dim: #6066a6;
-    --purple: #7c5cbf; --purple-glow: #a78bfa;
+    --purple: #7c5cbf; --purple-glow: #a78bfa; --gold: #f0c05a; --gold-glow: #ffd876;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    background: radial-gradient(ellipse at top, #0d0a1a 0%, #050510 60%);
+    background: radial-gradient(ellipse 900px 600px at 50% -10%, rgba(124,92,191,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse 700px 500px at 90% 30%, rgba(240,192,90,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at top, #0d0a1a 0%, #050510 60%);
     color: var(--text); font-family: 'Outfit', system-ui, sans-serif;
-    min-height: 100vh; line-height: 1.5;
+    min-height: 100vh; line-height: 1.5; overflow-x: hidden;
   }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; }
   header { padding: 28px 0; display: flex; align-items: center; gap: 14px; }
-  header img { width: 42px; height: 42px; border-radius: 10px; }
+  header img { width: 42px; height: 42px; border-radius: 10px; filter: drop-shadow(0 0 14px rgba(124,92,191,.5)); }
   header span { font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.3px; }
-  .hero { text-align: center; padding: 64px 0 56px; }
+
+  .hero { text-align: center; padding: 64px 0 48px; position: relative; }
+  .hero::before {
+    content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,92,191,0.22) 0%, transparent 70%);
+    pointer-events: none; z-index: -1;
+  }
+  .hero .spark { color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; display: inline-block; }
+  .hero .spark::before, .hero .spark::after { content: '✦'; margin: 0 10px; color: var(--gold); opacity: .8; }
   .hero h1 {
     font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-weight: 900;
-    font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: -1.5px; line-height: 1.05;
-    background: linear-gradient(135deg, #fff 30%, var(--purple-glow) 100%);
+    font-size: clamp(2.4rem, 6vw, 4.2rem); letter-spacing: -1.5px; line-height: 1.05;
+    background: linear-gradient(135deg, #fff 20%, var(--purple-glow) 75%, var(--gold-glow) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 30px rgba(124,92,191,.25));
   }
-  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 560px; margin: 20px auto 0; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; padding: 20px 0 60px; }
+  .hero p { color: var(--muted); font-size: 1.15rem; max-width: 560px; margin: 22px auto 32px; }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--purple), var(--purple-glow));
+    color: #fff; font-weight: 700; font-size: 0.95rem;
+    padding: 15px 32px; border-radius: 100px; text-decoration: none;
+    box-shadow: 0 0 0 1px rgba(167,139,250,.4), 0 8px 24px rgba(124,92,191,.45), 0 0 40px rgba(124,92,191,.25);
+    transition: all .3s ease; position: relative;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(167,139,250,.6), 0 12px 32px rgba(124,92,191,.6), 0 0 60px rgba(124,92,191,.4); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; padding: 44px 0 60px; }
   .card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    background: linear-gradient(160deg, var(--surface) 0%, #0a0a18 100%);
+    border: 1px solid var(--border); border-radius: 18px;
     padding: 26px; text-decoration: none; color: var(--text); display: block;
-    transition: all .25s ease; position: relative; overflow: hidden;
+    transition: all .3s ease; position: relative; overflow: hidden;
   }
-  .card:hover { background: var(--surface-hover); border-color: var(--purple); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(124,92,191,.2); }
-  .card .icon { font-size: 1.8rem; margin-bottom: 14px; display: block; }
+  .card:hover { background: linear-gradient(160deg, var(--surface-hover) 0%, #12122a 100%); border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(124,92,191,.28), 0 0 0 1px rgba(124,92,191,.3), 0 0 60px rgba(124,92,191,.15); }
+  .card .icon { font-size: 1.9rem; margin-bottom: 14px; display: block; filter: drop-shadow(0 0 10px rgba(124,92,191,.4)); }
   .card h3 { font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
   .card p { color: var(--muted); font-size: 0.92rem; }
-  .card .go { color: var(--purple-glow); font-size: 0.82rem; font-weight: 600; margin-top: 14px; display: inline-block; }
+  .card .go { color: var(--purple-glow); font-size: 0.82rem; font-weight: 600; margin-top: 14px; display: inline-flex; align-items: center; gap: 4px; transition: gap .2s ease; }
+  .card:hover .go { gap: 8px; }
 
-  .about-section { padding: 56px 0; border-top: 1px solid var(--border); }
-  .about-eyebrow { text-align: center; color: var(--purple-glow); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-  .about-title { text-align: center; font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 36px; }
-  .about-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
-  .about-wrap img { width: 100%; border-radius: 20px; border: 1px solid var(--border); }
-  .about-wrap p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 16px; }
-  .about-wrap .quote { color: var(--purple-glow); font-style: italic; }
+  .about-section { padding: 60px 0; border-top: 1px solid var(--border); position: relative; }
+  .about-eyebrow { text-align: center; color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .about-eyebrow::before, .about-eyebrow::after { content: '✦'; margin: 0 8px; opacity: .8; }
+  .about-title { text-align: center; font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 2.1rem; font-weight: 800; margin-bottom: 40px; }
+  .about-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 44px; align-items: center; max-width: 900px; margin: 0 auto; }
+  .about-wrap img { width: 100%; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 0 50px rgba(124,92,191,.2), 0 0 100px rgba(240,192,90,.06); }
+  .about-wrap p { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 16px; }
+  .about-wrap .quote { color: var(--gold-glow); font-style: italic; font-size: 1.02rem; }
   @media (max-width: 720px) { .about-wrap { grid-template-columns: 1fr; } }
-  footer { border-top: 1px solid var(--border); padding: 48px 0 36px; color: var(--dim); font-size: 0.85rem; }
-  .footer-brand { text-align: center; margin-bottom: 32px; }
-  .footer-brand p { color: var(--muted); }
-  .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; padding-bottom: 28px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-  .footer-col h4 { font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; color: var(--text); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
-  .footer-col a { display: block; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin-bottom: 8px; transition: color .2s; }
-  .footer-col a:hover { color: var(--purple-glow); }
+
+  footer { border-top: 1px solid var(--border); padding: 52px 0 36px; color: var(--dim); font-size: 0.85rem; }
+  .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px; padding-bottom: 32px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+  .footer-col h4 { font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; color: var(--text); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 14px; }
+  .footer-col a { display: flex; align-items: center; gap: 9px; color: var(--muted); text-decoration: none; font-size: 0.88rem; margin-bottom: 11px; transition: all .2s; }
+  .footer-col a:hover { color: var(--purple-glow); transform: translateX(3px); }
+  .footer-col a img { width: 20px; height: 20px; border-radius: 5px; object-fit: cover; flex-shrink: 0; box-shadow: 0 0 8px rgba(124,92,191,.3); }
   .footer-bottom { text-align: center; }
   footer a.inline { color: var(--muted); text-decoration: underline; }
 </style>
@@ -72,11 +98,13 @@
   </header>
 
   <section class="hero">
+    <span class="spark">Ascension Digital Group</span>
     <h1>Six tools.<br>One creative &amp; commerce engine.</h1>
     <p>AI-powered tools for turning images, ideas, and brands into finished, ready-to-publish work — image processing, print-on-demand, books, content, advertising, and file management.</p>
+    <a class="cta-btn" href="#tools">Explore the tools ✦</a>
   </section>
 
-  <section class="grid">
+  <section class="grid" id="tools">
     <a class="card" href="https://opt.raven-sharp.com">
       <span class="icon">🖼️</span>
       <h3>Image Optimiser</h3>
@@ -133,27 +161,28 @@
     <div class="footer-links">
       <div class="footer-col">
         <h4>Raven Sharp Tools</h4>
-        <a href="https://opt.raven-sharp.com">Image Optimiser & Upscaler</a>
-        <a href="https://pod.raven-sharp.com">POD Automation</a>
-        <a href="https://books.raven-sharp.com">Book Creator</a>
-        <a href="https://content.raven-sharp.com">Content Creator</a>
-        <a href="https://ads.raven-sharp.com">Ad Manager</a>
-        <a href="https://cleaner.raven-sharp.com">Smart AI Cleaner</a>
+        <a href="https://opt.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">Image Optimiser & Upscaler</a>
+        <a href="https://pod.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">POD Automation</a>
+        <a href="https://books.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">Book Creator</a>
+        <a href="https://content.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">Content Creator</a>
+        <a href="https://ads.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">Ad Manager</a>
+        <a href="https://cleaner.raven-sharp.com"><img src="/brands/ravenSharpLogo.png" alt="">Smart AI Cleaner</a>
       </div>
       <div class="footer-col">
         <h4>Utility Tools</h4>
-        <a href="https://mycalctools.net" target="_blank" rel="noopener">MyCalcTools</a>
-        <a href="https://mycalendartools.net" target="_blank" rel="noopener">MyCalendarTools</a>
-        <a href="https://wheelnamepicker.com.au" target="_blank" rel="noopener">Wheel Name Picker</a>
+        <a href="https://mycalctools.net" target="_blank" rel="noopener"><img src="/brands/mycalctoolsLogo.png" alt="">MyCalcTools</a>
+        <a href="https://mycalendartools.net" target="_blank" rel="noopener"><img src="/brands/mycalendartoolsLogo.png" alt="">MyCalendarTools</a>
+        <a href="https://wheelnamepicker.com.au" target="_blank" rel="noopener"><img src="/brands/wheelnamepickerLogo.png" alt="">Wheel Name Picker</a>
       </div>
       <div class="footer-col">
         <h4>Creative & Content</h4>
-        <a href="https://www.youtube.com/@spewcrewkids" target="_blank" rel="noopener">Spew Crew Kids</a>
-        <a href="https://zyiacreations.etsy.com" target="_blank" rel="noopener">Zyia Creations</a>
+        <a href="https://www.youtube.com/@spewcrewkids" target="_blank" rel="noopener"><img src="/brands/spewCrewKidsLogo.png" alt="">Spew Crew Kids</a>
+        <a href="https://zyia-creations.printify.me/" target="_blank" rel="noopener"><img src="/brands/zyiaCreationsLogo.png" alt="">Zyia Creations</a>
+        <a href="https://zyiacreations.etsy.com" target="_blank" rel="noopener"><img src="/brands/adgDownloadsLogo.png" alt="">ADG Downloads</a>
       </div>
       <div class="footer-col">
         <h4>Get in touch</h4>
-        <a href="mailto:ascensiondigitalagency@outlook.com">ascensiondigitalagency@outlook.com</a>
+        <a href="mailto:ascensiondigitalagency@outlook.com"><img src="/brands/ascensionDigitalLogo.png" alt="">ascensiondigitalagency@outlook.com</a>
       </div>
     </div>
     <div class="footer-bottom">
