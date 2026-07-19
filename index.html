@@ -43,6 +43,15 @@
   .card h3 { font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
   .card p { color: var(--muted); font-size: 0.92rem; }
   .card .go { color: var(--purple-glow); font-size: 0.82rem; font-weight: 600; margin-top: 14px; display: inline-block; }
+
+  .about-section { padding: 56px 0; border-top: 1px solid var(--border); }
+  .about-eyebrow { text-align: center; color: var(--purple-glow); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .about-title { text-align: center; font-family: 'Cabinet Grotesk', 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 36px; }
+  .about-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
+  .about-wrap img { width: 100%; border-radius: 20px; border: 1px solid var(--border); }
+  .about-wrap p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 16px; }
+  .about-wrap .quote { color: var(--purple-glow); font-style: italic; }
+  @media (max-width: 720px) { .about-wrap { grid-template-columns: 1fr; } }
   footer { border-top: 1px solid var(--border); padding: 48px 0 36px; color: var(--dim); font-size: 0.85rem; }
   .footer-brand { text-align: center; margin-bottom: 32px; }
   .footer-brand p { color: var(--muted); }
@@ -104,6 +113,20 @@
       <p>AI-powered duplicate detection across Drive, Dropbox, and your device — keeps the best, clears the rest.</p>
       <span class="go">cleaner.raven-sharp.com →</span>
     </a>
+  </section>
+
+  <section class="about-section">
+    <div class="about-eyebrow">Our Story</div>
+    <div class="about-title">The Owl &amp; The Raven</div>
+    <div class="about-wrap">
+      <img src="/brands/owlAndRaven.png" alt="The Owl and the Raven — Ascension Digital's origin story">
+      <div>
+        <p>The Owl is intuition. She sees the vision before it exists — the idea, the brand, the direction — built from instinct and creative force, with her own mind and her own hands.</p>
+        <p>The Raven is technology. <span style="color:var(--text)">It doesn't create the vision — it carries it.</span> It does the technical heavy lifting, the execution, the building at scale. It helps bring what the Owl sees in her mind into the world, faster and sharper than either could alone.</p>
+        <p class="quote">"I am the creator. It is the tool. Together we move."</p>
+        <p>That's the philosophy behind Raven Sharp — and every brand under Ascension Digital. Human intuition leading. Technology executing.</p>
+      </div>
+    </div>
   </section>
 
   <footer>
