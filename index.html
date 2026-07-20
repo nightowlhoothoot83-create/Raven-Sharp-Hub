@@ -11,19 +11,19 @@
   :root {
     --bg: #080810; --surface: #100e1c; --surface-hover: #171432;
     --border: rgba(167,139,250,0.14); --text: #f4f2fb; --muted: #a29bc4; --dim: #625c85;
-    --purple: #7c5cbf; --purple-glow: #a78bfa; --gold: #f0b429; --blue: #38bdf8;
+    --purple: #9463e8; --purple-glow: #c4a4ff; --gold: #ffd23f; --blue: #22d3ee; --pink: #ec4899; --green: #34d399;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   @keyframes twinkle { 0%, 100% { opacity: 0.2; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.15); } }
-  @keyframes glowPulse { 0%, 100% { box-shadow: 0 8px 28px rgba(124,92,191,.4), 0 0 40px rgba(56,189,248,.2); } 50% { box-shadow: 0 10px 40px rgba(124,92,191,.6), 0 0 60px rgba(240,180,41,.3); } }
+  @keyframes glowPulse { 0%, 100% { box-shadow: 0 8px 28px rgba(148,99,232,.4), 0 0 40px rgba(34,211,238,.2); } 50% { box-shadow: 0 10px 40px rgba(148,99,232,.6), 0 0 60px rgba(236,72,153,.3); } }
   .sparkle { position: absolute; color: var(--gold); font-size: 14px; pointer-events: none; animation: twinkle 2.4s ease-in-out infinite; text-shadow: 0 0 12px var(--gold); }
   body {
     position: relative;
     background:
-      radial-gradient(ellipse 900px 560px at 50% -10%, rgba(124,92,191,0.28) 0%, transparent 62%),
-      radial-gradient(ellipse 600px 420px at 90% 22%, rgba(240,180,41,0.12) 0%, transparent 58%),
-      radial-gradient(ellipse 500px 400px at 6% 55%, rgba(56,189,248,0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 900px 560px at 50% -10%, rgba(148,99,232,0.42) 0%, transparent 62%),
+      radial-gradient(ellipse 600px 420px at 90% 22%, rgba(255,210,63,0.22) 0%, transparent 58%),
+      radial-gradient(ellipse 500px 400px at 6% 55%, rgba(34,211,238,0.2) 0%, transparent 55%),
       var(--bg);
     color: var(--text); font-family: 'Outfit', system-ui, sans-serif;
     min-height: 100vh; line-height: 1.55; overflow-x: hidden;
@@ -36,9 +36,9 @@
   header span { font-size: 1.15rem; letter-spacing: -0.2px; }
 
   .hero { text-align: center; padding: 60px 0 50px; position: relative; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(240,180,41,0.12); border: 1px solid rgba(240,180,41,0.4); color: var(--gold); font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px; margin-bottom: 22px; box-shadow: 0 0 24px rgba(240,180,41,0.25); }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(148,99,232,0.14); border: 1px solid rgba(148,99,232,0.4); color: var(--purple-glow); font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px; margin-bottom: 22px; box-shadow: 0 0 24px rgba(148,99,232,0.25); }
   .hero h1 { font-size: clamp(2.1rem, 5.6vw, 3.6rem); line-height: 1.08; letter-spacing: -1px; }
-  .hero h1 .accent { background: linear-gradient(90deg, var(--purple-glow), var(--gold), var(--blue)); background-size: 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
+  .hero h1 .accent { background: linear-gradient(90deg, var(--purple-glow), var(--pink), var(--blue)); background-size: 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
   @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
   .hero p { color: var(--muted); font-size: 1.02rem; max-width: 520px; margin: 20px auto 26px; }
   .stats-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin: 0 0 30px; }
@@ -61,13 +61,14 @@
 
   .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 16px; padding: 40px 0 56px; }
   .card {
-    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    background: var(--surface); border: 1px solid rgba(124,92,191,.35); border-radius: 16px;
     padding: 24px; text-decoration: none; color: var(--text); display: block;
     transition: all .3s ease; position: relative; overflow: hidden;
+    box-shadow: 0 0 22px rgba(124,92,191,.14), inset 0 0 20px rgba(124,92,191,.03);
   }
   .card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--purple-glow), var(--gold), var(--blue));
+    background: linear-gradient(90deg, var(--purple-glow), var(--green), var(--blue));
     transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
   }
   .card:hover::before { transform: scaleX(1); }
