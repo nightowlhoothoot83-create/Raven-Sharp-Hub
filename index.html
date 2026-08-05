@@ -31,12 +31,17 @@
   h1, h2, h3 { font-family: 'Syne', sans-serif; font-weight: 800; }
   .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-  header { padding: 30px 0; display: flex; align-items: center; gap: 13px; }
+  header { padding: 30px 0; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .brand-lockup { display:flex; align-items:center; gap:13px; color:var(--text); text-decoration:none; }
   header img { width: 40px; height: 40px; border-radius: 10px; filter: drop-shadow(0 0 14px rgba(124,92,191,.45)); }
   header span { font-size: 1.15rem; letter-spacing: -0.2px; }
+  header nav { display:flex; gap:18px; flex-wrap:wrap; }
+  header nav a { color:var(--muted); text-decoration:none; font-size:.86rem; font-weight:700; }
+  header nav a:hover { color:var(--gold); }
 
   .hero { text-align: center; padding: 60px 0 50px; position: relative; }
   .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(148,99,232,0.14); border: 1px solid rgba(148,99,232,0.4); color: var(--purple-glow); font-size: 0.78rem; font-weight: 700; padding: 6px 16px; border-radius: 999px; margin-bottom: 22px; box-shadow: 0 0 24px rgba(148,99,232,0.25); }
+  .hero-raven { width:min(330px,72vw); aspect-ratio:1; object-fit:cover; display:block; margin:0 auto 24px; border-radius:50%; border:1px solid rgba(196,164,255,.45); box-shadow:0 0 70px rgba(148,99,232,.48),0 0 130px rgba(34,211,238,.18); }
   .hero h1 { font-size: clamp(2.1rem, 5.6vw, 3.6rem); line-height: 1.08; letter-spacing: -1px; }
   .hero h1 .accent { background: linear-gradient(90deg, var(--purple-glow), var(--pink), var(--blue)); background-size: 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 5s linear infinite; }
   @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
@@ -77,9 +82,25 @@
   .card h3 { font-size: 1.02rem; margin-bottom: 7px; }
   .card p { color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
   .card .go { color: var(--gold); font-size: 0.78rem; font-weight: 700; margin-top: 12px; display: inline-block; }
+  .card .price { color:var(--gold); font-size:.83rem; font-weight:800; margin-top:12px; }
   .card .tags { margin-top: 12px; }
   .tag { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 0.68rem; font-weight: 600; margin: 2px 4px 2px 0; background: rgba(124,92,191,0.14); border: 1px solid rgba(124,92,191,0.3); color: var(--purple-glow); }
 
+  .section-block { padding:58px 0; border-top:1px solid var(--border); }
+  .section-kicker { color:var(--gold); font-size:.72rem; font-weight:800; letter-spacing:2.2px; text-transform:uppercase; text-align:center; }
+  .section-title { text-align:center; font-size:clamp(1.7rem,4vw,2.35rem); margin:8px 0 12px; }
+  .section-intro { max-width:760px; margin:0 auto 28px; color:var(--muted); text-align:center; }
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-top:28px; }
+  .step { background:var(--surface); border:1px solid var(--border); border-radius:15px; padding:20px; }
+  .step b { color:var(--purple-glow); display:block; margin-bottom:7px; }
+  .utility-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+  .utility-card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px; }
+  .utility-card img { width:58px; height:58px; border-radius:13px; object-fit:cover; margin-bottom:12px; }
+  .utility-card h3 { margin-bottom:7px; }
+  .utility-card p { color:var(--muted); font-size:.9rem; }
+  .utility-card a { display:inline-block; color:var(--gold); margin-top:13px; font-weight:800; text-decoration:none; }
+  .adg-panel { margin-top:28px; border:1px solid rgba(255,210,63,.3); border-radius:18px; padding:26px; background:linear-gradient(135deg,rgba(148,99,232,.13),rgba(255,210,63,.08)); text-align:center; }
+  .adg-panel p { color:var(--muted); max-width:720px; margin:10px auto 18px; }
   .about-section { padding: 52px 0; border-top: 1px solid var(--border); }
   .about-eyebrow { text-align: center; color: var(--gold); font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 8px; }
   .about-title { text-align: center; font-size: 1.9rem; margin-bottom: 36px; }
@@ -87,7 +108,7 @@
   .about-wrap img { width: 100%; border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 0 44px rgba(124,92,191,.16); }
   .about-wrap p { color: var(--muted); font-size: 0.93rem; line-height: 1.7; margin-bottom: 14px; }
   .about-wrap .quote { color: var(--gold); font-style: italic; font-size: 1rem; }
-  @media (max-width: 700px) { .about-wrap { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .about-wrap { grid-template-columns: 1fr; } header { align-items:flex-start; } header nav { justify-content:flex-end; gap:10px; } }
 
   footer { border-top: 1px solid var(--border); padding: 48px 0 34px; color: var(--dim); font-size: 0.85rem; }
   .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 26px; padding-bottom: 28px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
@@ -103,8 +124,8 @@
 
 <div class="container">
   <header>
-    <img src="/brands/ravenSharpLogo.png" alt="Raven Sharp">
-    <span>Raven Sharp</span>
+    <a class="brand-lockup" href="/"><img src="/brands/ravenSharpLogo.png" alt="Raven Sharp raven logo"><span>Raven Sharp</span></a>
+    <nav aria-label="Main navigation"><a href="#tools">SaaS Tools</a><a href="#how-it-works">How it works</a><a href="#utilities">Free Utilities</a><a href="#about">Our story</a><a href="https://ascensiondigitalgroup.com">Ascension Digital</a></nav>
   </header>
 
   <section class="hero">
@@ -112,6 +133,7 @@
     <span class="sparkle" style="top:60px;right:14%;animation-delay:0.7s;font-size:10px">✧</span>
     <span class="sparkle" style="top:130px;left:6%;animation-delay:1.4s;font-size:11px;color:var(--blue);text-shadow:0 0 12px var(--blue)">✦</span>
     <span class="sparkle" style="top:20px;right:8%;animation-delay:2s;color:var(--purple-glow);text-shadow:0 0 12px var(--purple-glow)">✧</span>
+    <img class="hero-raven" src="/brands/ravenSharpLogo.png" alt="Raven Sharp — AI-powered creative and commerce tools">
     <div class="hero-badge">✦ 6 AI-Powered Tools — One Ecosystem</div>
     <h1>Six tools. One creative &amp; <span class="accent">commerce engine.</span></h1>
     <p>AI-powered tools for turning images, ideas, and brands into finished, ready-to-publish work — image processing, print-on-demand, books, content, advertising, and file management.</p>
@@ -130,6 +152,7 @@
       <span class="icon">🖼️</span>
       <h3>Image Optimiser</h3>
       <p>AI upscaling, background removal, and batch processing for print-ready images.</p>
+      <div class="price">Free · Standard A$10/mo · Pro A$15/mo</div>
       <div class="tags"><span class="tag">AI Upscale</span><span class="tag">BG Removal</span></div>
       <span class="go">opt.raven-sharp.com →</span>
     </a>
@@ -137,6 +160,7 @@
       <span class="icon">📦</span>
       <h3>POD Automation</h3>
       <p>Turn artwork into full print-on-demand listings — product matching, pricing, mockups, multi-platform publishing.</p>
+      <div class="price">Free · Creator A$39/mo · Pro A$119/mo</div>
       <div class="tags"><span class="tag">9 Platforms</span><span class="tag">Auto-Publish</span></div>
       <span class="go">pod.raven-sharp.com →</span>
     </a>
@@ -144,6 +168,7 @@
       <span class="icon">📚</span>
       <h3>Book Creator</h3>
       <p>Write, illustrate, and export books ready for KDP, Google Play Books, or print-at-home.</p>
+      <div class="price">Pricing not yet published</div>
       <div class="tags"><span class="tag">KDP Ready</span><span class="tag">Illustrated</span></div>
       <span class="go">books.raven-sharp.com →</span>
     </a>
@@ -151,6 +176,7 @@
       <span class="icon">🎬</span>
       <h3>Content Creator</h3>
       <p>Scripts, images, and video generation for social content — brand-consistent, ready to post.</p>
+      <div class="price">Pricing not yet published</div>
       <div class="tags"><span class="tag">Scripts</span><span class="tag">Video Gen</span></div>
       <span class="go">content.raven-sharp.com →</span>
     </a>
@@ -158,6 +184,7 @@
       <span class="icon">📣</span>
       <h3>Ad Manager</h3>
       <p>Plan, generate, and publish on-brand ad campaigns across social platforms.</p>
+      <div class="price">Free · Starter A$19/mo · Pro A$49/mo</div>
       <div class="tags"><span class="tag">Multi-Platform</span><span class="tag">On-Brand</span></div>
       <span class="go">ads.raven-sharp.com →</span>
     </a>
@@ -165,12 +192,37 @@
       <span class="icon">🧹</span>
       <h3>Smart Cleaner</h3>
       <p>AI-powered duplicate detection across Drive, Dropbox, and your device — keeps the best, clears the rest.</p>
+      <div class="price">Pricing not yet published</div>
       <div class="tags"><span class="tag">AI Detection</span><span class="tag">Cloud Sync</span></div>
       <span class="go">cleaner.raven-sharp.com →</span>
     </a>
   </section>
 
-  <section class="about-section">
+  <section class="section-block" id="how-it-works">
+    <div class="section-kicker">One connected ecosystem</div>
+    <h2 class="section-title">From idea to finished work</h2>
+    <p class="section-intro">Raven Sharp tools cover the practical stages between a creative idea and a publishable product. Start with artwork or a brief, process the assets, generate the required content, prepare campaigns and organise the files that support the work.</p>
+    <div class="steps">
+      <div class="step"><b>1 · Prepare</b>Upscale, crop, optimise and standardise images in Image Optimiser.</div>
+      <div class="step"><b>2 · Create</b>Build books, social packages and campaign material with the creator tools.</div>
+      <div class="step"><b>3 · Publish</b>Prepare POD listings and organise multi-brand advertising campaigns.</div>
+      <div class="step"><b>4 · Maintain</b>Use Smart Cleaner to identify duplicates, old drafts and poorly named files.</div>
+    </div>
+  </section>
+
+  <section class="section-block" id="utilities">
+    <div class="section-kicker">Free everyday tools</div>
+    <h2 class="section-title">Useful tools from the wider ADG network</h2>
+    <p class="section-intro">The Raven Sharp suite is part of a broader group of practical web tools. These free utility sites require no account for their core features.</p>
+    <div class="utility-grid">
+      <article class="utility-card"><img src="/brands/mycalctoolsLogo.png" alt="MyCalcTools logo"><h3>MyCalcTools</h3><p>Free calculators for finance, health, dates, measurements and everyday planning, with clear explanations and worked guidance.</p><a href="https://mycalctools.net">Explore free calculators →</a></article>
+      <article class="utility-card"><img src="/brands/mycalendartoolsLogo.png" alt="MyCalendarTools logo"><h3>MyCalendarTools</h3><p>Calendar, date and holiday tools for planning school terms, events, working days and schedules across different regions.</p><a href="https://mycalendartools.net">Explore calendar tools →</a></article>
+      <article class="utility-card"><img src="/brands/wheelnamepickerLogo.png" alt="Wheel Name Picker logo"><h3>Wheel Name Picker</h3><p>Free random-choice tools including a name wheel, coin flip, dice roller and number picker for classrooms, raffles, games and everyday decisions.</p><a href="https://wheelnamepicker.com.au">Explore random tools →</a></article>
+    </div>
+    <div class="adg-panel"><h2>Built within Ascension Digital Group</h2><p>Ascension Digital Group brings together Raven Sharp software, free utility sites, creative brands and digital products. Visit the main group site to explore the wider network, support options and current projects.</p><a class="cta-btn" href="https://ascensiondigitalgroup.com">Visit Ascension Digital Group →</a></div>
+  </section>
+
+  <section class="about-section" id="about">
     <div class="about-eyebrow">Our Story</div>
     <div class="about-title">The Owl &amp; The Raven</div>
     <div class="about-wrap">
