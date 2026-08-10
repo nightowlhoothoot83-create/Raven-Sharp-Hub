@@ -6,7 +6,8 @@
 <title>Raven Sharp — AI-Powered Creative & Commerce Tools</title>
 <meta name="description" content="Raven Sharp is a suite of AI-powered tools for image optimisation, print-on-demand automation, book creation, content creation, ad management, and smart file cleaning.">
 <link rel="canonical" href="https://raven-sharp.com/">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #080810; --surface: #100e1c; --surface-hover: #171432;
@@ -28,13 +29,13 @@
     color: var(--text); font-family: 'Outfit', system-ui, sans-serif;
     min-height: 100vh; line-height: 1.55; overflow-x: hidden;
   }
-  h1, h2, h3 { font-family: 'Syne', sans-serif; font-weight: 800; }
+  h1, h2, h3, h4 { font-family: 'Cabinet Grotesk', 'Outfit', system-ui, sans-serif; font-weight: 800; }
   .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-  header { padding: 30px 0; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  header { min-height:64px; padding:0; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
   .brand-lockup { display:flex; align-items:center; gap:13px; color:var(--text); text-decoration:none; }
-  header img { width: 40px; height: 40px; border-radius: 10px; filter: drop-shadow(0 0 14px rgba(124,92,191,.45)); }
-  header span { font-size: 1.15rem; letter-spacing: -0.2px; }
+  header img { width:36px; height:36px; object-fit:contain; border-radius:0; filter:drop-shadow(0 0 8px rgba(124,92,191,.4)); }
+  .brand-name{font-family:'Cabinet Grotesk','Outfit',sans-serif;font-size:18px;font-weight:900;letter-spacing:-.02em;line-height:1}.brand-name strong{color:#a78bfa}.brand-name small{display:block;margin-top:3px;color:#7a7990;font:500 9px/1 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase}
   header nav { display:flex; gap:18px; flex-wrap:wrap; }
   header nav a { color:var(--muted); text-decoration:none; font-size:.86rem; font-weight:700; }
   header nav a:hover { color:var(--gold); }
@@ -114,7 +115,7 @@
 
   footer { border-top: 1px solid var(--border); padding: 48px 0 34px; color: var(--dim); font-size: 0.85rem; }
   .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 26px; padding-bottom: 28px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-  .footer-col h4 { font-family: 'Syne', sans-serif; color: var(--text); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 13px; }
+  .footer-col h4 { font-family: 'Cabinet Grotesk','Outfit',sans-serif; color: var(--text); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; margin-bottom: 13px; }
   .footer-col a { display: flex; align-items: center; gap: 9px; color: var(--muted); text-decoration: none; font-size: 0.87rem; margin-bottom: 10px; transition: color .2s; }
   .footer-col a:hover { color: var(--purple-glow); }
   .footer-col a img { width: 21px; height: 21px; border-radius: 5px; object-fit: cover; flex-shrink: 0; opacity: 0.9; }
@@ -126,7 +127,7 @@
 
 <div class="container">
   <header>
-    <a class="brand-lockup" href="/"><img src="/brands/ravenSharpLogo.png" alt="Raven Sharp raven logo"><span>Raven Sharp</span></a>
+    <a class="brand-lockup" href="/"><img src="/brands/ravenSharpLogo.png" alt="Raven Sharp"><span class="brand-name">RAVEN <strong>SHARP</strong><small>Creative Suite</small></span></a>
     <nav aria-label="Main navigation"><a href="#tools">SaaS Tools</a><a href="#how-it-works">How it works</a><a href="#utilities">Free Utilities</a><a href="#about">Our story</a><a class="adg-nav-link" href="https://ascensiondigitalgroup.com"><img src="/brands/ascensionDigitalLogo.png" alt="">Ascension Digital</a></nav>
   </header>
 
